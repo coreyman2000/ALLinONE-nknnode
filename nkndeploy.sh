@@ -1246,7 +1246,7 @@ apt install sudo -y
 apt install bc -y
 apt install vnstat -y
 apt autoremove -y
-menu ;;
+done
 
 }
 
