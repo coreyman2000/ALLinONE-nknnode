@@ -641,6 +641,8 @@ sudo systemctl stop nkn-commercial.service
 printf "1"
 filename=${nknsoftwareURL##*/}
 printf "2"
+printf $filename
+read -s -r -p "Press enter to continue!"
 unzip "$filename" > /dev/null 2>&1
 printf "3"
 rm -f "$filename"
