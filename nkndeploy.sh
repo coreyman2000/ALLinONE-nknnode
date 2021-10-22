@@ -725,8 +725,10 @@ printf "DONE!\n"
 printf "Disabling Root account for security reasons............................. "
 passwd --lock root > /dev/null 2>&1
 printf "DONE!\n\n"
-install4
+lightupdate
 }
+
+
 
 function install4(){
 printf "===============================================================================\n"
@@ -1264,6 +1266,7 @@ mv config2.json config.json
 
 sudo systemctl start nkn-commercial.service 
 
+install4
 
 }
 
