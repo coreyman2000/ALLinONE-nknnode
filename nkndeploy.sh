@@ -636,6 +636,7 @@ wget --quiet --continue "$nknsoftwareURL"
 printf "DONE!\n"
 
 printf "Installing NKN node software............................................ "
+sudo systemctl stop nkn-commercial.service 
 # extract filename and extension from URL
 filename=${nknsoftwareURL##*/}
 unzip "$filename" > /dev/null 2>&1
