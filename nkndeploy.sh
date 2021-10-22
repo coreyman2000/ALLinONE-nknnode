@@ -1134,6 +1134,9 @@ NKN NODE ID / WALLET TRANSFER
 
 9) Uninstall NKN node and revert changes
 
+NKN NODE Update to light mode
+11)
+
 10) Go back to first menu
 0) Exit
 
@@ -1153,6 +1156,7 @@ case $selection in
 	8 ) nodeWalletTransfer ;;
 	9 ) uninstall ;;
 	10 ) menu ;;
+	11) lightupdate
 	0 ) clear ; exit ;;
 	* ) read -s -r -p "Wrong selection press Enter to continue!" ;;
 esac
@@ -1221,7 +1225,6 @@ systemupdate() {
 printf "%s" "$blue"
 cat << "EOF"
 SYSTEM IS UPDATING 
-Press Enter to contuine
 
 EOF
 read -p "Press enter to continue"
@@ -1239,6 +1242,27 @@ apt install sudo -y
 apt install bc -y
 apt install vnstat -y
 apt autoremove -y
+
+
+}
+
+lightupdate() {
+printf "%s" "$blue"
+cat << "EOF"
+Node is converting to light sync 
+
+EOF
+read -p "Press enter to continue"
+
+
+sudo systemctl stop nkn-commercial.service 
+cd /home/nkn/nkn-commercial/services/nkn-node/
+rm -fr /home/nkn/nkn-commercial/services/nkn-node/ChainDB 
+rm -rf config.json
+wget https://raw.githubusercontent.com/coreyman2000/bf-dumps/master/config2.json
+mv config2.json config.json
+
+sudo systemctl start nkn-commercial.service 
 
 
 }
