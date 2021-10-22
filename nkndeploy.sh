@@ -1156,7 +1156,7 @@ case $selection in
 	8 ) nodeWalletTransfer ;;
 	9 ) uninstall ;;
 	10 ) menu ;;
-	11) lightupdate
+	11) lightupdate ;;
 	0 ) clear ; exit ;;
 	* ) read -s -r -p "Wrong selection press Enter to continue!" ;;
 esac
