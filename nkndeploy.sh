@@ -1464,11 +1464,12 @@ done
 
 # Check if flags present
 if [[ $flags == "1" ]]; then
-    if [[ $userpassword == "" ]] || [[ $benaddress == "" ]] || [[ $websource == "" ]]; then
-		printf "Provide all three flags: password, benaddress and ChainDB websource!\n";
+    if [[ $userpassword == "" ]] || [[ $benaddress == "" ]] ; then
+		printf "Provide all three flags: password, benaddress!\n";
         exit 1;
     else
 		# Flag direct to install start up of the script
+		database="no"
         install1
     fi
 else
