@@ -1221,17 +1221,10 @@ systemupdate() {
 printf "%s" "$blue"
 cat << "EOF"
 SYSTEM IS UPDATING 
-Press Enter to contuine or 10 go to back 0 to exit
+Press Enter to contuine
 
 EOF
-	
-case $selection in
-	2 ) read -s -r -p "Put on your glasses and press enter to continue :D"  ;;
-	10 ) menu ;;
-	0 ) clear ; exit ;;
-	* ) read -s -r -p "Wrong selection press enter to continue!" ;;
-esac
-
+read -p "Press enter to continue"
 
 # Update, upgrade, install system software
 apt update -y
@@ -1246,7 +1239,7 @@ apt install sudo -y
 apt install bc -y
 apt install vnstat -y
 apt autoremove -y
-done
+
 
 }
 
