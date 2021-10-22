@@ -1445,16 +1445,16 @@ case "$1" in
 		fi
 		shift
 		;;
-	--websource | -w)
-		shift
-		if [[ $# -gt 0 ]]; then
-				export websource=$1
-		else
-				printf "No ChainDB URL address specified\n"
-				exit 1
-		fi
-		shift
-		;;
+#	--websource | -w)
+#		shift
+#		if [[ $# -gt 0 ]]; then
+#				export websource=$1
+#		else
+#				printf "No ChainDB URL address specified\n"
+#				exit 1
+#		fi
+#		shift
+#		;;
 	*)
 		help
 		exit 1
