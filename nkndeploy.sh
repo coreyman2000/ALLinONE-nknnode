@@ -638,19 +638,19 @@ printf "DONE!\n"
 printf "Installing NKN node software............................................ "
 sudo systemctl stop nkn-commercial.service 
 # extract filename and extension from URL
-printf "1"
+
 filename=${nknsoftwareURL##*/}
-printf "2"
-printf $filename
-read -s -r -p "Press enter to continue!"
+
+
 unzip "$filename" > /dev/null 2>&1
-printf "3"
+
 rm -f "$filename"
 # remove extension from filename
-printf "4"
+
 filename=${filename%.*}
 printf "5"
 mv "$filename" nkn-commercial
+rm -rf /home/nkn/linux-amd64/
 
 chown -R "$username":"$username" /home/"$username"
 chmod -R 755 /home/"$username"
