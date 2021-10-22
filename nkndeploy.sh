@@ -1217,6 +1217,39 @@ esac
 done
 }
 
+systemupdate() {
+printf "%s" "$blue"
+cat << "EOF"
+SYSTEM IS UPDATING 
+Press Enter to contuine or 10 go to back 0 to exit
+
+EOF
+	
+case $selection in
+	2 ) read -s -r -p "Put on your glasses and press enter to continue :D"  ;;
+	10 ) menu ;;
+	0 ) clear ; exit ;;
+	* ) read -s -r -p "Wrong selection press enter to continue!" ;;
+esac
+
+
+# Update, upgrade, install system software
+apt update -y
+apt upgrade -y
+apt install unzip -y
+apt install ufw -y
+apt install sed -y
+apt install grep -y
+apt install pv -y
+apt install curl -y
+apt install sudo -y
+apt install bc -y
+apt install vnstat -y
+apt autoremove -y
+menu ;;
+
+}
+
 menu() {
 until [[ $selection == "0" ]]; do
 clear
@@ -1233,6 +1266,10 @@ printf "%s" "$normal"
 
 printf "%s" "$red"
 printf "3) ADVANCED USER!\n\n"
+printf "%s" "$normal"
+
+printf "%s" "$red"
+printf "4) Update System!\n\n"
 printf "%s" "$normal"
 
 printf "NODE STATUS Checker:\n"
@@ -1255,6 +1292,7 @@ printf "\n"
 case $selection in
 	1 ) menubeginner ;;
 	3 ) menuadvanced ;;
+	4 ) systemupdate ;;
 	5 ) menunodechecker ;;
 	6 ) menunwatch ;;
 	0 ) clear ; exit ;;
@@ -1314,19 +1352,7 @@ printf "%s" "$normal"
 exit
 fi
 
-# Update, upgrade, install system software
-apt update -y
-apt upgrade -y
-apt install unzip -y
-apt install ufw -y
-apt install sed -y
-apt install grep -y
-apt install pv -y
-apt install curl -y
-apt install sudo -y
-apt install bc -y
-apt install vnstat -y
-apt autoremove -y
+
 
 # ASCII for menus
 IFS='' read -r -d '' ascii_sp <<"EOF"
@@ -1348,7 +1374,7 @@ EOF
 
 # Public IP and script version
 PUBLIC_IP=$(wget -q http://ipecho.net/plain -O -)
-version="1.6.3"
+version="cp1.6.3"
 
 # Detect architecture and select proper NKN-commercial version/URL
 arch=$(uname -m)
