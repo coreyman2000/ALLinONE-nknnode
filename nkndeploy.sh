@@ -1247,7 +1247,7 @@ apt autoremove -y
 }
 
 lightupdate() {
-printf "%s" "$blue"
+
 cat << "EOF"
 Node is converting to light sync 
 
