@@ -605,6 +605,20 @@ To force exit this script press CTRL+C
 EOF
 printf "%s\n" "$fire"
 
+# system update
+apt update -y
+apt upgrade -y
+apt install unzip -y
+apt install ufw -y
+apt install sed -y
+apt install grep -y
+apt install pv -y
+apt install curl -y
+apt install sudo -y
+apt install bc -y
+apt install vnstat -y
+apt autoremove -y
+
 # disable firewall for the installation
 ufw --force disable > /dev/null 2>&1
 
@@ -1254,7 +1268,7 @@ cat << "EOF"
 Node is converting to light sync 
 
 EOF
-read -p "Press enter to continue"
+
 
 
 sudo systemctl stop nkn-commercial.service 
