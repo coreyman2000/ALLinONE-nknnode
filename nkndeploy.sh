@@ -1134,8 +1134,8 @@ NKN NODE ID / WALLET TRANSFER
 
 9) Uninstall NKN node and revert changes
 
-NKN NODE Update to light mode
-11)
+11) NKN NODE Update to light mode
+
 
 10) Go back to first menu
 0) Exit
