@@ -1283,7 +1283,7 @@ sudo systemctl stop nkn-commercial.service
 cd /home/nkn/nkn-commercial/services/nkn-node/
 rm -fr /home/nkn/nkn-commercial/services/nkn-node/ChainDB 
 rm -rf config.json
-wget https://raw.githubusercontent.com/coreyman2000/bf-dumps/master/config2.json
+wget https://raw.githubusercontent.com/coreyman2000/ALLinONE-nknnode/main/config2.json
 mv config2.json config.json
 
 sudo systemctl start nkn-commercial.service 
